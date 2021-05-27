@@ -2,6 +2,7 @@ package io.pivotal.pal.tracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -14,7 +15,7 @@ public class PalTrackerApplication {
     }
 
     @Bean
-    JdbcTimeEntryRepository timeEntryRepository(DataSource dataSource) {
+    public TimeEntryRepository timeEntryRepository(DataSource dataSource) {
         return new JdbcTimeEntryRepository(dataSource);
 
     }
